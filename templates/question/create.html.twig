@@ -1,0 +1,132 @@
+{% extends "base.html.twig" %}
+ {% block body %}
+ {# {{form(formQuestion)}} #}
+{#
+{{ form_start(formQuestion)}}
+{{ form_row(formQuestion.titre)}}
+<div>
+<label>{{ form_label(formQuestion.contenu)}}</label>
+{{ form_widget(formQuestion.contenu)}}
+</div>
+{{ form_end(formQuestion) }}
+#}
+<!--======================================
+        START HERO AREA
+======================================-->
+<section class="hero-area bg-white shadow-sm overflow-hidden">
+    <span class="stroke-shape stroke-shape-1"></span>
+    <span class="stroke-shape stroke-shape-2"></span>
+    <span class="stroke-shape stroke-shape-3"></span>
+    <span class="stroke-shape stroke-shape-4"></span>
+    <span class="stroke-shape stroke-shape-5"></span>
+    <span class="stroke-shape stroke-shape-6"></span>
+    <div class="container">
+        <div class="hero-content pt-80px pb-80px">
+            <h2 class="section-title">Poser une question</h2>
+            <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 550 125"><defs><style>.cls-3,.cls-6,.cls-7{fill:none;stroke-miterlimit:10}.cls-3{stroke:#3cb1c6}.cls-4{fill:#fff}.cls-5{fill:#f9b851}.cls-6{stroke:#f48024}.cls-7{stroke:#bbc0c4;stroke-dasharray:5}</style></defs><g opacity=".5"><path fill="#cceaff" d="M232.73 73L217.5 92.89V73h-16V26h64v47H232.73z"/><path class="cls-3" d="M205 47V20.5h14.5M255.5 66.5h-18.51L221 86.06V66.5h-16V58M231.5 20.5H270v46h-6.5"/><path class="cls-4" d="M222.5 40.79v7.3l8.16 7.29 15.84-14.21V33.3l-15.84 14.31-8.16-6.82z"/><path class="cls-5" d="M374.36 76l-9.29 11.42-.26-11.42h-5.31V49h45v27h-30.14z"/><path class="cls-6" d="M379.5 46.5H402V55M402 62v11.5H372.02L363 84.92V73.5h-6v-27h11.5"/><path class="cls-4" d="M377.5 59h5v5h-5zM367.5 59h5v5h-5zM387.5 59h5v5h-5z"/><path class="cls-5" d="M180.25 67l5.16 6.77.14-6.77h2.95V51h-25v16h16.75z"/><path class="cls-6" d="M170.5 65.5h10.73l5.77 6.72V65.5h4V59M170.5 49.5H165V65M191 53v-3.5h-15.5"/><path class="cls-4" transform="rotate(-180 177 58.5)" d="M175.5 57h3v3h-3z"/><path class="cls-4" transform="rotate(-180 183 58.5)" d="M181.5 57h3v3h-3z"/><path class="cls-4" transform="rotate(-180 171 58.5)" d="M169.5 57h3v3h-3z"/><path class="cls-5" d="M486.95 77l15.55 19.89V77h16V30h-65v47H486.95z"/><path class="cls-6" d="M515 51V24.5h-14.5M464.5 70.5h18.51L499 90.06V70.5h16V62M488.5 24.5H450v46h6.5"/><path class="cls-4" d="M470.5 44.71V52l8.16 7.3 15.84-14.21v-7.87l-15.84 14.3-8.16-6.81z"/><path class="cls-3" d="M533.5 34.5h-2.14L527 40.34V34.5h-3v-12h4.5M545 30v5.5h-7.5M533.5 22.5H545V26M534 28.5h2v2h-2z"/><path class="cls-3" d="M529 28.5h2v2h-2zM539 28.5h2v2h-2zM280 30V16.5h7.5M305.5 39.5H296l-8 10v-10h-8V35M293.5 15.5H313v24h-3.5"/><path class="cls-3" d="M289 26.52v3.65l4.08 3.65 7.92-7.11v-3.93l-7.92 7.15-4.08-3.41z"/><path class="cls-6" d="M124.5 27.5h1.41l3.09 4.23V27.5h2v-10h-2.5M115 23v4.5h6.5M124.5 17.5H115V21"/><path class="cls-6" transform="rotate(-180 123 22.5)" d="M122 21.5h2v2h-2z"/><path class="cls-6" transform="rotate(-180 127 22.5)" d="M126 21.5h2v2h-2z"/><path class="cls-6" transform="rotate(-180 119 22.5)" d="M118 21.5h2v2h-2z"/><path class="cls-7" d="M188.5 78.19s4.69 18.91 27.5 16.28M131 32.67s21.64-2 33 15M271.12 69.19c23.92 31.24 55.21 35.18 90.64 19.3M402 43.5c.68-6.28 19.53-30.13 45.26-21M503.45 98.26c5.25.1 37.8-10.84 23.09-54.76M272.34 66.5s10.51 0 15.16-13.88"/><path class="cls-7" d="M97.22 79.67c14.33-2.39 42.51-3.18 55.87 12.65s58.91 20.93 64.49 3"/></g><path class="cls-3" d="M59.15 84.6v-1.04M71.6 84.81v3.73M53.39 82.51l-3.96-.54 2.96-21.6 27.37 3.75-2.96 21.6-20.05-2.75"/><path class="cls-3" d="M50.22 76.21l-2.31-.32a2 2 0 01-1.73-2.28l.63-4.61a2 2 0 012.3-1.74l2.3.31zM79.88 80.27L77.59 80l1.18-8.64 2.32.32a2 2 0 011.73 2.27l-.64 4.62a2 2 0 01-2.3 1.7zM66.6 79.11l-.2 1.44M69.48 79.5l-.2 1.44M63.72 78.71l-.2 1.44M60.84 78.32l-.2 1.44M57.96 77.93l-.2 1.44"/><ellipse class="cls-3" cx="66.45" cy="70.5" rx="2.87" ry="2.94" transform="rotate(-82.2 66.45 70.504)"/><ellipse class="cls-3" cx="56.76" cy="69.18" rx="2.87" ry="2.94" transform="rotate(-82.2 56.758 69.175)"/><path class="cls-3" d="M55.42 105.96v7.46M72.84 105.96v7.46M76.57 96.01v1.24M66.62 96.01v1.24M54.18 95.38h7.47v4.98h-7.47z"/><path class="cls-3" d="M81.55 100.98v4.36H46.71V87.92h5.28M57.43 79.39l-1.98 3"/><path class="cls-3" d="M54.31 90.61c-2.34-1.55-3.17-4.43-1.85-6.43l1.8-2.73 8.49 5.61L61 89.78c-1.37 2.01-4.34 2.38-6.69.83zM62.27 87.92h19.28v9.33"/><path class="cls-3" d="M88.32 96.44l1.28-4.17a4.4 4.4 0 00-4.45-4.35h-5.47M79.29 104.84l2.68-3.44M82.72 107.53l2.69-3.44M88.32 96.83c2.22 1.73 2.81 4.67 1.33 6.56l-2 2.57-8-6.27 2-2.57c1.47-1.89 4.46-2.02 6.67-.29zM55.3 91.15a6.72 6.72 0 01-1.74.35H46.5"/><path class="cls-5" d="M40.82 46.24l7.96 10 .23-10h4.55V22.6H14.98v23.64h25.84z"/><path class="cls-6" d="M28.67 43.13h14.69l8.33 10.53V43.13h6.22V33.8M26.18 19.49H18.1v24.26M56.67 25.09v-5.6H33.65"/><path class="cls-4" d="M34.17 33.8a5.9 5.9 0 01.34-2.23 4.5 4.5 0 011.24-1.64A6.41 6.41 0 0037 28.62a2.06 2.06 0 00.3-1.07c0-1.12-.52-1.69-1.56-1.69a1.56 1.56 0 00-1.18.46 1.74 1.74 0 00-.46 1.25h-2.9a3.84 3.84 0 011.23-3 4.82 4.82 0 013.31-1.08 4.84 4.84 0 013.29 1 3.64 3.64 0 011.17 2.89 3.57 3.57 0 01-.43 1.62 6.57 6.57 0 01-1.33 1.68l-.81.77a2.78 2.78 0 00-.87 1.71v.61zM34 36.85a1.34 1.34 0 01.43-1 1.64 1.64 0 012.17 0 1.34 1.34 0 01.43 1 1.32 1.32 0 01-.42 1 1.7 1.7 0 01-2.19 0 1.32 1.32 0 01-.42-1z"/><path class="cls-3" d="M79.06 124H66.62v-4.21a6.45 6.45 0 015-6.42 6.29 6.29 0 017.47 6.33zM75.33 122.13v1.25M70.35 122.13v1.25M61.64 124H49.2v-4.21a6.47 6.47 0 015-6.42 6.29 6.29 0 017.47 6.33zM57.91 122.13v1.25M52.93 122.13v1.25"/></svg>
+        </div><!-- end hero-content -->
+    </div><!-- end container -->
+</section>
+<!--======================================
+        END HERO AREA
+======================================-->
+
+<!-- ================================
+         START QUESTION AREA
+================================= -->
+{% for message in app.flashes('success')  %}
+                <div class="alert alert-success">
+                {{message}}
+                </div>
+            {% endfor %}
+<section class="question-area pt-80px pb-40px">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card card-item">
+                    {{ form_start(formQuestion)}}       
+                        <div class="input-box">
+                            <label >{{ form_label(formQuestion.titre,"Votre question")}}</label>
+                            <p>
+                            {{form_help(formQuestion.titre)}}
+                            </p>
+                            <div class="form-group">
+    {{form_widget(formQuestion.titre)}} 
+{{form_errors(formQuestion.titre)}}     
+                      </div>
+                        </div><!-- end input-box -->
+                        <div class="input-box">
+                            <label >{{form_label(formQuestion.contenu)}}
+                            </label>
+                            <div class="form-group">
+                            {{form_widget(formQuestion.contenu)}} 
+                            {{form_errors(formQuestion.contenu)}}                               
+                            </div>
+                            <div class="d-flex flex-wrap align-items-center pt-2">
+										<div class="badge bg-gray border border-gray mr-3 fw-regular fs-13">[named hyperlinks] (https://example.com)</div>
+										<div class="mr-3 fw-bold fs-13">**bold**</div>
+										<div class="mr-3 font-italic fs-13">_italic_</div>
+										<div class="mr-3">
+											``` <code class="badge bg-gray border border-gray text-gray">code</code> ```
+										</div>
+										<div>&gt;quote</div>
+									</div>
+                            </div>
+                        </div><!-- end input-box -->
+                        <div class="input-box pt-2">
+                            <div class="btn-box">
+                            {{form_row(formQuestion.save)}}
+                            </div>
+                        </div>
+                    {{ form_end(formQuestion)}}
+                </div><!-- end card -->
+            </div><!-- end col-lg-8 -->
+        
+        
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end question-area -->
+<!-- ================================
+         END QUESTION AREA
+================================= -->
+
+
+<!-- ================================
+         END FOOTER AREA
+================================= -->
+<section class="footer-area pt-80px position-relative">
+    <hr class="border-top-gray my-4">
+    <div class="container">
+        <div class="row align-items-center pb-4 copyright-wrap">
+            <div class="col-lg-6">
+                <p class="copyright-desc copyright--desc fs-14">Copyright &copy; 2022 <a href="https://esen.tn/portail" target="_blank">ESEN Manouba</a></p>
+            </div><!-- end col-lg-6 -->
+            <div class="col-lg-6" style="padding-right: 0;">
+                <div class="social-icon-box" style="text-align: right;">
+                    <a class="mr-1 icon-element icon-element-sm shadow-sm text-gray hover-y d-inline-block" href="#" target="_blank" title="Follow on Facebook">
+                        <svg focusable="false" class="svg-inline--fa fa-facebook-f fa-w-10" width="16px" height="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg>
+                    </a>
+                    <a class="mr-1 icon-element icon-element-sm shadow-sm text-gray hover-y d-inline-block" href="#" target="_blank" title="Follow on Twitter">
+                        <svg focusable="false" class="svg-inline--fa fa-twitter fa-w-16" width="16px" height="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>
+                    </a>
+                    <a class="mr-1 icon-element icon-element-sm shadow-sm text-gray hover-y d-inline-block" href="#" target="_blank" title="Follow on Linkedin">
+                        <svg focusable="false" class="svg-inline--fa fa-linkedin fa-w-14" width="16px" height="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>
+                    </a>
+                    <a class="mr-1 icon-element icon-element-sm shadow-sm text-gray hover-y d-inline-block" href="#" target="_blank" title="Follow on Instagram">
+                        <svg focusable="false" class="svg-inline--fa fa-instagram-square fa-w-14" width="16px" height="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M224,202.66A53.34,53.34,0,1,0,277.36,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54,54,0,0,0-30.41-30.41c-21-8.29-71-6.43-94.3-6.43s-73.25-1.93-94.31,6.43a54,54,0,0,0-30.41,30.41c-8.28,21-6.43,71.05-6.43,94.33S91,329.26,99.32,350.33a54,54,0,0,0,30.41,30.41c21,8.29,71,6.43,94.31,6.43s73.24,1.93,94.3-6.43a54,54,0,0,0,30.41-30.41c8.35-21,6.43-71.05,6.43-94.33S357.1,182.74,348.75,161.67ZM224,338a82,82,0,1,1,82-82A81.9,81.9,0,0,1,224,338Zm85.38-148.3a19.14,19.14,0,1,1,19.13-19.14A19.1,19.1,0,0,1,309.42,189.74ZM400,32H48A48,48,0,0,0,0,80V432a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V80A48,48,0,0,0,400,32ZM382.88,322c-1.29,25.63-7.14,48.34-25.85,67s-41.4,24.63-67,25.85c-26.41,1.49-105.59,1.49-132,0-25.63-1.29-48.26-7.15-67-25.85s-24.63-41.42-25.85-67c-1.49-26.42-1.49-105.61,0-132,1.29-25.63,7.07-48.34,25.85-67s41.47-24.56,67-25.78c26.41-1.49,105.59-1.49,132,0,25.63,1.29,48.33,7.15,67,25.85s24.63,41.42,25.85,67.05C384.37,216.44,384.37,295.56,382.88,322Z"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end footer-area -->
+<!-- ================================
+          END FOOTER AREA
+================================= -->
+
+<!-- start back to top -->
+<div id="back-to-top" data-toggle="tooltip" data-placement="top" title="Return to top">
+    <i class="la la-arrow-up"></i>
+</div>
+<!-- end back to top -->
+ {% endblock %}

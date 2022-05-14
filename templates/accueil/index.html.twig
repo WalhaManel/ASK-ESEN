@@ -1,52 +1,6 @@
  {% extends "base.html.twig" %}
  {% block body %}
- <!--======================================
-        START HEADER AREA
-    ======================================-->
-<header class="header-area bg-white border-bottom border-bottom-gray">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-2">
-                <div class="logo-box">
-                    <a href="index.html" class="logo"><img src="assets/images/logo.png" alt="logo"></a>
-                    <div class="user-action">
-                        <div class="search-menu-toggle icon-element icon-element-xs shadow-sm mr-1" data-toggle="tooltip" data-placement="top" title="Search">
-                            <i class="la la-search"></i>
-                        </div>
-                        <div class="off-canvas-menu-toggle icon-element icon-element-xs shadow-sm" data-toggle="tooltip" data-placement="top" title="Main menu">
-                            <i class="la la-bars"></i>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- end col-lg-2 -->
-            <div class="col-lg-10">
-                <div class="menu-wrapper border-left border-left-gray pl-4 justify-content-end">
-                    <nav class="menu-bar mr-auto menu--bar">
-                        <ul>
-                            <li><a href="index.html"><i class="la la-home mr-1 text-black"></i> Accueil</a></li>
-                            <li><a href="users.html"><i class="la la-user mr-1 text-black"></i> Utilisateurs</a></li>
-                            <li><a href="categories.html"><i class="la la-sort mr-1 text-black"></i> Categories</a></li>
-                            
-                        </ul><!-- end ul -->
-                    </nav><!-- end main-menu -->
-                    <form method="post" class="mr-2">
-                        <div class="form-group mb-0">
-                            <input class="form-control form--control h-auto py-2" type="text" name="search" placeholder="Tapez un mot clé...">
-                            <button class="form-btn" type="button"><i class="la la-search"></i></button>
-                        </div>
-                    </form>
-                    <div class="nav-right-button">
-                        <a href="login.html" class="btn theme-btn theme-btn-sm theme-btn-outline mr-1">Se connecter</a>
-                        <a href="register.html" class="btn theme-btn theme-btn-sm">S'inscrire</a>
-                    </div><!-- end nav-right-button -->
-                </div>
-            </div><!-- end col-lg-10 -->
-        </div><!-- end row -->
-    </div><!-- end container -->
-</header><!-- end header-area -->
-<!--======================================
-        END HEADER AREA
-======================================-->
+
 
 <!--======================================
         START HERO AREA
@@ -59,9 +13,10 @@
                 Poser ses questions, apprendre, partager, grandir.
             </p>
             <div class="hero-btn-box py-4">
-                <a href="register.html" class="btn theme-btn mr-2">Rejoignez la communauté </a>
-                <a href="ask.html" class="btn theme-btn theme-btn-outline">Posez une question</a>
-            </div>
+            {% if not app.user %}
+                <a href="{{ url("register")}}" class="btn theme-btn mr-2">Rejoignez la communauté </a>
+              {% else %}  <a href="{{ url("create_question")}}" class="btn theme-btn theme-btn-outline">Posez une question</a>
+            {% endif %} </div>
         </div><!-- end hero-content -->
     </div><!-- end container -->
 </section>
@@ -80,7 +35,7 @@
                     <div class="filters pb-4 pl-3 d-flex align-items-center justify-content-between">
                         <div class="mr-3">
                             <h3 class="fs-18 fw-medium">Toutes les questions </h3>
-                            <p class="pt-1 fs-14 fw-medium lh-20">21,287 questions</p>
+                            <p class="pt-1 fs-14 fw-medium lh-20">{{questions | length}} questions</p>
                         </div>
                         <div class="filter-option-box w-20">
                             <select class="select-container">
@@ -97,12 +52,12 @@
                         <div class="media media-card rounded-0 shadow-none mb-0 bg-transparent p-3 border-bottom border-bottom-gray">
                             <div class="votes text-center votes-2">
                                 <div class="answer-block answered my-2">
-                                    <span class="answer-counts d-block lh-20 fw-medium">3</span>
+                                    <span class="answer-counts d-block lh-20 fw-medium">{{ question | length }}</span>
                                     <span class="answer-text d-block fs-13 lh-18">réponses</span>
                                 </div>
                             </div>
                             <div class="media-body">
-                                <h5 class="mb-2 fw-medium"><a href="question-details.html">{{ question.titre }}</a></h5>
+                                <h5 class="mb-2 fw-medium"><a href="{{ url("show_question", {"slug": question.titre | slug("-") | lower, "id": question.id}) }}">{{ question.titre }}</a></h5>
                                 <p class="mb-2 truncate lh-20 fs-15">{{ question.contenu | markdown_to_html }}</p>
                                 <div class="media media-card user-media align-items-center px-0 border-bottom-0 pb-0">
                                     <a href="" class="media-img d-block">
@@ -110,11 +65,11 @@
                                     </a>
                                     <div class="media-body d-flex flex-wrap align-items-center justify-content-between">
                                         <div>
-                                            <h5 class="pb-1"><a href="">Arden Smith</a></h5>
+                                            <h5 class="pb-1"><a href="">{{question.user.name}}</a></h5>
                                         </div>
                                         <small class="meta d-block text-right">
                                             <span class="text-black d-block lh-18">publiée</span>
-                                            <span class="d-block lh-18 fs-12">6 hours ago</span>
+                                            <span class="d-block lh-18 fs-12">{{ question.createdAt | ago(locale="fr")}}</span>
                                         </small>
                                     </div>
                                 </div>

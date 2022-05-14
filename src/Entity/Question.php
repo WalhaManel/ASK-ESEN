@@ -3,7 +3,10 @@
 namespace App\Entity;
 
 use App\Repository\QuestionRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=QuestionRepository::class)
@@ -18,12 +21,18 @@ class Question
     private $id;
 
     /**
+     * 
      * @ORM\Column(type="string", length=200)
+     * @Assert\NotBlank(message="Veuillez saisir le titre")
+     * Assert\Email(message="adresse mail non valide")
+     * @Assert\Length(min=8,minMessage="minimum 8 caractéres")
+     * 
      */
     private $titre;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Veuillez saisir le titre")
      */
     private $contenu;
 
@@ -36,6 +45,27 @@ class Question
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
+
+    public static $states =[
+        0=> "Non publiée",
+        1=> "Publiée",
+        2=> "Fermée"
+    ];
+
+    /**
+     * @ORM\OneToMany(targetEntity=Reponse::class, mappedBy="question", orphanRemoval=true)
+     */
+    private $reponses;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="questions")
+     */
+    private $user;
+
+    public function __construct()
+    {
+        $this->reponses = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -86,6 +116,48 @@ class Question
     public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Reponse[]
+     */
+    public function getReponses(): Collection
+    {
+        return $this->reponses;
+    }
+
+    public function addReponse(Reponse $reponse): self
+    {
+        if (!$this->reponses->contains($reponse)) {
+            $this->reponses[] = $reponse;
+            $reponse->setQuestion($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReponse(Reponse $reponse): self
+    {
+        if ($this->reponses->removeElement($reponse)) {
+            // set the owning side to null (unless already changed)
+            if ($reponse->getQuestion() === $this) {
+                $reponse->setQuestion(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
